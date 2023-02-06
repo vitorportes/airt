@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "../components";
 
 const RenderImages = ({ data, title }) => {
   if (data?.length > 0) {

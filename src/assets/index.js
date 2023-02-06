@@ -1,9 +1,7 @@
-import download from './download.png';
-import logo from './logo.svg';
-import preview from './preview.png';
+import download from "./download.png";
 
-export {
-  download,
-  logo,
-  preview,
-};
+import preview from "./preview.png";
+import brush from "./brush.svg";
+import robot from "./robot.svg";
+
+export { download, preview, brush, robot };
