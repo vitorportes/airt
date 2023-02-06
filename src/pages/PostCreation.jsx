@@ -14,7 +14,29 @@ const PostCreation = () => {
     photo: "",
   });
 
-  const generateImage = () => {};
+  const generateImage = async () => {
+    if (form.phrase) {
+      try {
+        setGeneratingImg(true);
+        const response = await fetch("http://localhost:8080/api/photo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ phrase: form.phrase }),
+        });
+
+        const data = await response.json();
+        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+      } catch (error) {
+        alert(error);
+      } finally {
+        setGeneratingImg(false);
+      }
+    } else {
+      alert("Please, enter a prompt");
+    }
+  };
 
   const handleSubmit = () => {};
 
